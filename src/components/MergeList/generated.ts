@@ -139,6 +139,22 @@ export interface IRightSection4 {
   onPress?: () => void
 }
 
+export interface IFirstSortText {
+  date?: string
+}
+
+export interface ISecondSortText {
+  date?: string
+}
+
+export interface IThirdSortText {
+  date?: string
+}
+
+export interface IFourthSortText {
+  date?: string
+}
+
 export interface IBackground {
   enabled?: boolean
   backgroundColor?: string
@@ -155,6 +171,7 @@ export interface IItems1 {
   secondLine1?: ISecondLine1
   leftSection1?: ILeftSection1
   rightSection1?: IRightSection1
+  firstSortText?: IFirstSortText
   _meta: any
 }
 
@@ -164,6 +181,7 @@ export interface IItems2 {
   secondLine2?: ISecondLine2
   leftSection2?: ILeftSection2
   rightSection2?: IRightSection2
+  secondSortText?: ISecondSortText
   _meta: any
 }
 
@@ -173,6 +191,7 @@ export interface IItems3 {
   secondLine3?: ISecondLine3
   leftSection3?: ILeftSection3
   rightSection3?: IRightSection3
+  thirdSortText?: IThirdSortText
   _meta: any
 }
 
@@ -182,6 +201,7 @@ export interface IItems4 {
   secondLine4?: ISecondLine4
   leftSection4?: ILeftSection4
   rightSection4?: IRightSection4
+  fourthSortText?: IFourthSortText
   _meta: any
 }
 

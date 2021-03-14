@@ -1,5 +1,6 @@
 import React from 'react'
-import { IAvatar, IFirstLine, IFonts, ILeftSection, IRightSection, ISecondLine } from './generated'
+import { IAvatar, IFonts } from './generated'
+import {IFirstLine, ILeftSection, IRightSection, ISecondLine} from './MergeListComponent'
 import { View, Image } from 'react-native'
 import { styles } from './Styles'
 import Icon  from 'react-native-vector-icons/MaterialIcons'

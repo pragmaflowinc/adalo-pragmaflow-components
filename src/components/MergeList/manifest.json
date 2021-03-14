@@ -695,6 +695,58 @@
       ]
     },
     {
+      "name": "firstSortText",
+      "displayName": "First List Sorting Date",
+      "role": "listItem",
+      "reference": "items1",
+      "props": [
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "date"
+        }
+      ]
+    },
+    {
+      "name": "secondSortText",
+      "displayName": "Second List Sorting Date",
+      "role": "listItem",
+      "reference": "items2",
+      "props": [
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "date"
+        }
+      ]
+    },
+    {
+      "name": "thirdSortText",
+      "displayName": "Third List Sorting Date",
+      "role": "listItem",
+      "reference": "items3",
+      "props": [
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "date"
+        }
+      ]
+    },
+    {
+      "name": "fourthSortText",
+      "displayName": "Fourth List Sorting Date",
+      "role": "listItem",
+      "reference": "items4",
+      "props": [
+        {
+          "name": "date",
+          "displayName": "Date",
+          "type": "date"
+        }
+      ]
+    },
+    {
       "name": "background",
       "displayName": "Background",
       "props": [

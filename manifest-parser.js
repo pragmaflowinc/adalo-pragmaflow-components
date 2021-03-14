@@ -29,6 +29,8 @@ function parseProp(prop) {
       ret.push(`  ${prop.name}?: string`)
     } else if (prop.type === 'image') {
       ret.push(`  ${prop.name}?: string | IAvatar`)
+    } else if (prop.type === 'date') {
+      ret.push(`  ${prop.name}?: string`)
     } else if (prop.type === 'number') {
       ret.push(`  ${prop.name}?: number`)
     } else if (prop.type === 'list') {

@@ -37,6 +37,7 @@ export interface IItem {
   secondLine?: ISecondLine
   leftSection?: ILeftSection
   rightSection?: IRightSection
+  sort: Date
   _meta: any
 }
 
@@ -55,15 +56,15 @@ export function MergeListComponent({
   const [currentWidth, setCurrentWidth] = useState(0);
   const [items, setItems] = useState<IItem[]>([])
   useEffect(() => {
-    
-    setItems([
+    const newItems = [
       ...(items1?.map(item => ({
         id: item.id,
         firstLine: item.firstFirstLine,
         secondLine: item.secondLine1,
         leftSection: item.leftSection1,
         rightSection: item.rightSection1,
-        _meta: item._meta
+        _meta: item._meta,
+        sort: new Date(item.firstSortText?.date|| '')
       })) || []),
       ...(items2?.map(item => ({
         id: item.id,
@@ -71,7 +72,8 @@ export function MergeListComponent({
         secondLine: item.secondLine2,
         leftSection: item.leftSection2,
         rightSection: item.rightSection2,
-        _meta: item._meta
+        _meta: item._meta,
+        sort: new Date(item.secondSortText?.date|| '')
       })) || []),
       ...(items3?.map(item => ({
         id: item.id,
@@ -79,7 +81,8 @@ export function MergeListComponent({
         secondLine: item.secondLine3,
         leftSection: item.leftSection3,
         rightSection: item.rightSection3,
-        _meta: item._meta
+        _meta: item._meta,
+        sort: new Date(item.thirdSortText?.date || '')
       })) || []),
       ...(items4?.map(item => ({
         id: item.id,
@@ -87,10 +90,13 @@ export function MergeListComponent({
         secondLine: item.secondLine4,
         leftSection: item.leftSection4,
         rightSection: item.rightSection4,
-        _meta: item._meta
+        _meta: item._meta,
+        sort: new Date(item.fourthSortText?.date || '')
       })) || []),
 
-    ])
+    ]
+    newItems.sort((a, b) => new Date(b.sort).getTime() - new Date(a.sort).getTime())
+    setItems(newItems)
   }, [items1, items2, items3, items4])
   const handleLayout = ({ nativeEvent }: any) => {
     const { width } = (nativeEvent && nativeEvent.layout) || {};
