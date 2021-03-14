@@ -1,0 +1,45 @@
+{
+  "name": "pragmaflow-components",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "ISC",
+  "author": "",
+  "scripts": {
+    "start": "adalo dev",
+    "login": "adalo login",
+    "publish": "adalo publish",
+    "test": "jest"
+  },
+  "adalo": {
+    "logo": "./example-logo.png",
+    "displayName": "PragmaFlow Components",
+    "components": [
+      {
+        "name": "MergeList",
+        "manifest": "./build/components/MergeList/manifest.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@adalo/cli": "^0.0.41",
+    "@babel/core": "^7.13.10",
+    "@babel/runtime": "^7.13.10",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@types/jest": "^26.0.20",
+    "@types/react": "^17.0.3",
+    "@types/react-native": "^0.63.51",
+    "@types/react-test-renderer": "^17.0.1",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.22.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.65.2",
+    "react": "^16.9.0",
+    "react-art": "^16.6.0",
+    "react-dom": "^16.9.0",
+    "react-native": "^0.64.0",
+    "react-native-web": "^0.9.5",
+    "react-test-renderer": "^17.0.1",
+    "typescript": "^4.2.3"
+  }
+}
