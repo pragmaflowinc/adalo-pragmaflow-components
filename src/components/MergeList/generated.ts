@@ -27,20 +27,59 @@ export interface IListHeader {
   styles: { header: IStyles }
 }
 
-export interface IFirstLine {
+export interface IFirstFirstLine {
   text?: string
   styles: { text: IStyles }
   titleLineNum?: number
 }
 
-export interface ISecondLine {
+export interface ISecondFirstLine {
+  text?: string
+  styles: { text: IStyles }
+  titleLineNum?: number
+}
+
+export interface IThirdFirstLine {
+  text?: string
+  styles: { text: IStyles }
+  titleLineNum?: number
+}
+
+export interface IFourthFirstLine {
+  text?: string
+  styles: { text: IStyles }
+  titleLineNum?: number
+}
+
+export interface ISecondLine1 {
   enabled?: boolean
   text?: string
   styles: { text: IStyles }
   subtitleLineNum?: number
 }
 
-export interface ILeftSection {
+export interface ISecondLine2 {
+  enabled?: boolean
+  text?: string
+  styles: { text: IStyles }
+  subtitleLineNum?: number
+}
+
+export interface ISecondLine3 {
+  enabled?: boolean
+  text?: string
+  styles: { text: IStyles }
+  subtitleLineNum?: number
+}
+
+export interface ISecondLine4 {
+  enabled?: boolean
+  text?: string
+  styles: { text: IStyles }
+  subtitleLineNum?: number
+}
+
+export interface ILeftSection1 {
   enabled?: boolean
   type?: string
   icon?: string
@@ -48,7 +87,52 @@ export interface ILeftSection {
   image?: string | IAvatar
 }
 
-export interface IRightSection {
+export interface ILeftSection2 {
+  enabled?: boolean
+  type?: string
+  icon?: string
+  iconColor?: string
+  image?: string | IAvatar
+}
+
+export interface ILeftSection3 {
+  enabled?: boolean
+  type?: string
+  icon?: string
+  iconColor?: string
+  image?: string | IAvatar
+}
+
+export interface ILeftSection4 {
+  enabled?: boolean
+  type?: string
+  icon?: string
+  iconColor?: string
+  image?: string | IAvatar
+}
+
+export interface IRightSection1 {
+  enabled?: boolean
+  icon?: string
+  iconColor?: string
+  onPress?: () => void
+}
+
+export interface IRightSection2 {
+  enabled?: boolean
+  icon?: string
+  iconColor?: string
+  onPress?: () => void
+}
+
+export interface IRightSection3 {
+  enabled?: boolean
+  icon?: string
+  iconColor?: string
+  onPress?: () => void
+}
+
+export interface IRightSection4 {
   enabled?: boolean
   icon?: string
   iconColor?: string
@@ -65,24 +149,63 @@ export interface IBackground {
   shadow?: boolean
 }
 
-export interface IItems {
+export interface IItems1 {
   id: number
-  firstLine?: IFirstLine
-  secondLine?: ISecondLine
-  leftSection?: ILeftSection
-  rightSection?: IRightSection
+  firstFirstLine?: IFirstFirstLine
+  secondLine1?: ISecondLine1
+  leftSection1?: ILeftSection1
+  rightSection1?: IRightSection1
+  _meta: any
+}
+
+export interface IItems2 {
+  id: number
+  secondFirstLine?: ISecondFirstLine
+  secondLine2?: ISecondLine2
+  leftSection2?: ILeftSection2
+  rightSection2?: IRightSection2
+  _meta: any
+}
+
+export interface IItems3 {
+  id: number
+  thirdFirstLine?: IThirdFirstLine
+  secondLine3?: ISecondLine3
+  leftSection3?: ILeftSection3
+  rightSection3?: IRightSection3
+  _meta: any
+}
+
+export interface IItems4 {
+  id: number
+  fourthFirstLine?: IFourthFirstLine
+  secondLine4?: ISecondLine4
+  leftSection4?: ILeftSection4
+  rightSection4?: IRightSection4
   _meta: any
 }
 
 export interface MergeListProps {
   listHeader?: IListHeader
-  firstLine?: { "text": IStyles }
-  secondLine?: { "text": IStyles }
+  firstFirstLine?: { "text": IStyles }
+  secondFirstLine?: { "text": IStyles }
+  thirdFirstLine?: { "text": IStyles }
+  fourthFirstLine?: { "text": IStyles }
+  secondLine1?: { "text": IStyles }
+  secondLine2?: { "text": IStyles }
+  secondLine3?: { "text": IStyles }
+  secondLine4?: { "text": IStyles }
   background?: IBackground
-  items?: IItems[]
+  items1?: IItems1[]
+  items2?: IItems2[]
+  items3?: IItems3[]
+  items4?: IItems4[]
   dividerType?: string
   dividerColor?: string
-  onPress?: () => void
+  onPress1?: () => void
+  onPress2?: () => void
+  onPress3?: () => void
+  onPress4?: () => void
   appId: string
   _fonts: IFonts
   _width: number

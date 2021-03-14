@@ -6,8 +6,23 @@
   "icon": "./example-thumbnail.png",
   "props": [
     {
-      "name": "items",
-      "displayName": "What is this a list of?",
+      "name": "items1",
+      "displayName": "What is the First list of?",
+      "type": "list"
+    },
+    {
+      "name": "items2",
+      "displayName": "What is the Second list of?",
+      "type": "list"
+    },
+    {
+      "name": "items3",
+      "displayName": "What is this the Third list of?",
+      "type": "list"
+    },
+    {
+      "name": "items4",
+      "displayName": "What is the Fourth list of?",
       "type": "list"
     },
     {
@@ -31,11 +46,32 @@
       "default": "#e0e0e0"
     },
     {
-      "name": "onPress",
-      "displayName": "Click Actions",
+      "name": "onPress1",
+      "displayName": "First click Actions",
       "type": "action",
       "role": "listItem",
-      "reference": "items"
+      "reference": "items1"
+    },
+    {
+      "name": "onPress2",
+      "displayName": "Second click Actions",
+      "type": "action",
+      "role": "listItem",
+      "reference": "items2"
+    },
+    {
+      "name": "onPress3",
+      "displayName": "Third click Actions",
+      "type": "action",
+      "role": "listItem",
+      "reference": "items3"
+    },
+    {
+      "name": "onPress4",
+      "displayName": "Fourth click Actions",
+      "type": "action",
+      "role": "listItem",
+      "reference": "items4"
     }
   ],
   "childComponents": [
@@ -59,10 +95,10 @@
       ]
     },
     {
-      "name": "firstLine",
-      "displayName": "Title",
+      "name": "firstFirstLine",
+      "displayName": "First Title",
       "role": "listItem",
-      "reference": "items",
+      "reference": "items1",
       "props": [
         {
           "name": "text",
@@ -92,10 +128,109 @@
       ]
     },
     {
-      "name": "secondLine",
-      "displayName": "Subtitle",
+      "name": "secondFirstLine",
+      "displayName": "Second Title",
       "role": "listItem",
-      "reference": "items",
+      "reference": "items2",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "text",
+          "default": "Title",
+          "styles": {
+            "fontFamily": "@body",
+            "color": "#212121",
+            "fontWeight": "normal"
+          }
+        },
+        {
+          "name": "titleLineNum",
+          "displayName": "Title Max Number of Lines",
+          "type": "number",
+          "default": 1,
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "One Line", "value": 1 },
+              { "label": "Two Lines", "value": 2 },
+              { "label": "No Max", "value": 3 }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "thirdFirstLine",
+      "displayName": "Third Title",
+      "role": "listItem",
+      "reference": "items3",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "text",
+          "default": "Title",
+          "styles": {
+            "fontFamily": "@body",
+            "color": "#212121",
+            "fontWeight": "normal"
+          }
+        },
+        {
+          "name": "titleLineNum",
+          "displayName": "Title Max Number of Lines",
+          "type": "number",
+          "default": 1,
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "One Line", "value": 1 },
+              { "label": "Two Lines", "value": 2 },
+              { "label": "No Max", "value": 3 }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "fourthFirstLine",
+      "displayName": "Fourth Title",
+      "role": "listItem",
+      "reference": "items4",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "text",
+          "default": "Title",
+          "styles": {
+            "fontFamily": "@body",
+            "color": "#212121",
+            "fontWeight": "normal"
+          }
+        },
+        {
+          "name": "titleLineNum",
+          "displayName": "Title Max Number of Lines",
+          "type": "number",
+          "default": 1,
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "One Line", "value": 1 },
+              { "label": "Two Lines", "value": 2 },
+              { "label": "No Max", "value": 3 }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "secondLine1",
+      "displayName": "First Subtitle",
+      "role": "listItem",
+      "reference": "items1",
       "props": [
         {
           "name": "enabled",
@@ -130,10 +265,124 @@
       ]
     },
     {
-      "name": "leftSection",
-      "displayName": "Left Section",
+      "name": "secondLine2",
+      "displayName": "Second Subtitle",
       "role": "listItem",
-      "reference": "items",
+      "reference": "items2",
+      "props": [
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "text",
+          "default": "Subtitle",
+          "styles": {
+            "fontFamily": "@body",
+            "color": "#757575",
+            "fontWeight": "normal"
+          }
+        },
+        {
+          "name": "subtitleLineNum",
+          "displayName": "Subtitle Max Number of Lines",
+          "type": "number",
+          "default": 1,
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "One Line", "value": 1 },
+              { "label": "Two Lines", "value": 2 },
+              { "label": "No Max", "value": 3 }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "secondLine3",
+      "displayName": "Third Subtitle",
+      "role": "listItem",
+      "reference": "items3",
+      "props": [
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "text",
+          "default": "Subtitle",
+          "styles": {
+            "fontFamily": "@body",
+            "color": "#757575",
+            "fontWeight": "normal"
+          }
+        },
+        {
+          "name": "subtitleLineNum",
+          "displayName": "Subtitle Max Number of Lines",
+          "type": "number",
+          "default": 1,
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "One Line", "value": 1 },
+              { "label": "Two Lines", "value": 2 },
+              { "label": "No Max", "value": 3 }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "secondLine4",
+      "displayName": "Fourth Subtitle",
+      "role": "listItem",
+      "reference": "items4",
+      "props": [
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "text",
+          "default": "Subtitle",
+          "styles": {
+            "fontFamily": "@body",
+            "color": "#757575",
+            "fontWeight": "normal"
+          }
+        },
+        {
+          "name": "subtitleLineNum",
+          "displayName": "Subtitle Max Number of Lines",
+          "type": "number",
+          "default": 1,
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "One Line", "value": 1 },
+              { "label": "Two Lines", "value": 2 },
+              { "label": "No Max", "value": 3 }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "leftSection1",
+      "displayName": "First Left Section",
+      "role": "listItem",
+      "reference": "items1",
       "props": [
         {
           "name": "enabled",
@@ -177,10 +426,247 @@
       ]
     },
     {
-      "name": "rightSection",
-      "displayName": "Right Section",
+      "name": "leftSection2",
+      "displayName": "Second Left Section",
       "role": "listItem",
-      "reference": "items",
+      "reference": "items2",
+      "props": [
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "text",
+          "default": "avatar",
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "Icon", "value": "icon" },
+              { "label": "Avatar", "value": "avatar" },
+              { "label": "Image", "value": "image" }
+            ]
+          }
+        },
+        {
+          "name": "icon",
+          "displayName": "Icon",
+          "type": "icon",
+          "default": "add",
+          "enabled": { "type": "icon" }
+        },
+        {
+          "name": "iconColor",
+          "displayName": "Icon Color",
+          "type": "color",
+          "default": "#ccc",
+          "enabled": { "type": "icon" }
+        },
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "image",
+          "enabled": { "type": ["image", "avatar"] }
+        }
+      ]
+    },
+    {
+      "name": "leftSection3",
+      "displayName": "Third Left Section",
+      "role": "listItem",
+      "reference": "items3",
+      "props": [
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "text",
+          "default": "avatar",
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "Icon", "value": "icon" },
+              { "label": "Avatar", "value": "avatar" },
+              { "label": "Image", "value": "image" }
+            ]
+          }
+        },
+        {
+          "name": "icon",
+          "displayName": "Icon",
+          "type": "icon",
+          "default": "add",
+          "enabled": { "type": "icon" }
+        },
+        {
+          "name": "iconColor",
+          "displayName": "Icon Color",
+          "type": "color",
+          "default": "#ccc",
+          "enabled": { "type": "icon" }
+        },
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "image",
+          "enabled": { "type": ["image", "avatar"] }
+        }
+      ]
+    },
+    {
+      "name": "leftSection4",
+      "displayName": "Fourth Left Section",
+      "role": "listItem",
+      "reference": "items4",
+      "props": [
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "text",
+          "default": "avatar",
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "Icon", "value": "icon" },
+              { "label": "Avatar", "value": "avatar" },
+              { "label": "Image", "value": "image" }
+            ]
+          }
+        },
+        {
+          "name": "icon",
+          "displayName": "Icon",
+          "type": "icon",
+          "default": "add",
+          "enabled": { "type": "icon" }
+        },
+        {
+          "name": "iconColor",
+          "displayName": "Icon Color",
+          "type": "color",
+          "default": "#ccc",
+          "enabled": { "type": "icon" }
+        },
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "image",
+          "enabled": { "type": ["image", "avatar"] }
+        }
+      ]
+    },
+    {
+      "name": "rightSection1",
+      "displayName": "First Right Section",
+      "role": "listItem",
+      "reference": "items1",
+      "props": [
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "icon",
+          "displayName": "Icon",
+          "type": "icon",
+          "default": "add"
+        },
+        {
+          "name": "iconColor",
+          "displayName": "Icon Color",
+          "type": "color",
+          "default": "#ccc"
+        },
+        {
+          "name": "onPress",
+          "displayName": "Click Actions",
+          "type": "action",
+          "role": "listItem",
+          "reference": "items"
+        }
+      ]
+    },
+    {
+      "name": "rightSection2",
+      "displayName": "Second Right Section",
+      "role": "listItem2",
+      "reference": "items2",
+      "props": [
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "icon",
+          "displayName": "Icon",
+          "type": "icon",
+          "default": "add"
+        },
+        {
+          "name": "iconColor",
+          "displayName": "Icon Color",
+          "type": "color",
+          "default": "#ccc"
+        },
+        {
+          "name": "onPress",
+          "displayName": "Click Actions",
+          "type": "action",
+          "role": "listItem",
+          "reference": "items"
+        }
+      ]
+    },
+    {
+      "name": "rightSection3",
+      "displayName": "Third Right Section",
+      "role": "listItem",
+      "reference": "items3",
+      "props": [
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "icon",
+          "displayName": "Icon",
+          "type": "icon",
+          "default": "add"
+        },
+        {
+          "name": "iconColor",
+          "displayName": "Icon Color",
+          "type": "color",
+          "default": "#ccc"
+        },
+        {
+          "name": "onPress",
+          "displayName": "Click Actions",
+          "type": "action",
+          "role": "listItem",
+          "reference": "items"
+        }
+      ]
+    },
+    {
+      "name": "rightSection4",
+      "displayName": "Fourth Right Section",
+      "role": "listItem",
+      "reference": "items4",
       "props": [
         {
           "name": "enabled",

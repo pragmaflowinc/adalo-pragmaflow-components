@@ -3,7 +3,7 @@ import { IAvatar, IFirstLine, IFonts, ILeftSection, IRightSection, ISecondLine }
 import { View, Image } from 'react-native'
 import { styles } from './Styles'
 import Icon  from 'react-native-vector-icons/MaterialIcons'
-import { RippleFeedback, IconToggle } from 'react-native-material-ui'
+import { RippleFeedback, IconToggle } from '@protonapp/react-native-material-ui'
 import { FirstLine } from './FirstLine'
 import { SecondLine } from './SecondLine'
 interface RowProps {
@@ -206,8 +206,7 @@ export function Row({ firstLine, secondLine, leftSection, rightSection, fullWidt
     if (onPress) {
       return (
         <View>
-          {/* <RippleFeedback onPress={onPress}> */}
-          <RippleFeedback>
+          <RippleFeedback onPress={onPress}>
             {renderContent()}
           </RippleFeedback>
         </View>

@@ -1,19 +1,97 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, TextInput, Text } from "react-native";
-import { MergeListProps } from "./generated";
+import { IAvatar, IStyles, MergeListProps } from "./generated";
 import { Row } from "./Row";
 import { styles } from "./Styles";
+
+export interface IFirstLine {
+  text?: string
+  styles: { text: IStyles }
+  titleLineNum?: number
+}
+
+export interface ISecondLine {
+  enabled?: boolean
+  text?: string
+  styles: { text: IStyles }
+  subtitleLineNum?: number
+}
+
+export interface ILeftSection {
+  enabled?: boolean
+  type?: string
+  icon?: string
+  iconColor?: string
+  image?: string | IAvatar
+}
+
+export interface IRightSection {
+  enabled?: boolean
+  icon?: string
+  iconColor?: string
+  onPress?: () => void
+}
+export interface IItem {
+  id?: number
+  firstLine?: IFirstLine
+  secondLine?: ISecondLine
+  leftSection?: ILeftSection
+  rightSection?: IRightSection
+  _meta: any
+}
 
 export function MergeListComponent({
   editor,
   listHeader,
   background,
   _fonts,
-  items,
+  items1,
+  items2,
+  items3,
+  items4,
   dividerType,
   dividerColor,
 }: MergeListProps) {
   const [currentWidth, setCurrentWidth] = useState(0);
+  const [items, setItems] = useState<IItem[]>([])
+  useEffect(() => {
+    
+    setItems([
+      ...(items1?.map(item => ({
+        id: item.id,
+        firstLine: item.firstFirstLine,
+        secondLine: item.secondLine1,
+        leftSection: item.leftSection1,
+        rightSection: item.rightSection1,
+        _meta: item._meta
+      })) || []),
+      ...(items2?.map(item => ({
+        id: item.id,
+        firstLine: item.secondFirstLine,
+        secondLine: item.secondLine2,
+        leftSection: item.leftSection2,
+        rightSection: item.rightSection2,
+        _meta: item._meta
+      })) || []),
+      ...(items3?.map(item => ({
+        id: item.id,
+        firstLine: item.thirdFirstLine,
+        secondLine: item.secondLine3,
+        leftSection: item.leftSection3,
+        rightSection: item.rightSection3,
+        _meta: item._meta
+      })) || []),
+      ...(items4?.map(item => ({
+        id: item.id,
+        firstLine: item.fourthFirstLine,
+        secondLine: item.secondLine4,
+        leftSection: item.leftSection4,
+        rightSection: item.rightSection4,
+        _meta: item._meta
+      })) || []),
+
+    ])
+  }, [items1, items2, items3, items4])
   const handleLayout = ({ nativeEvent }: any) => {
     const { width } = (nativeEvent && nativeEvent.layout) || {};
 
