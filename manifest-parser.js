@@ -13,6 +13,11 @@ export interface IFonts {
   body: string
   heading: string
 }
+
+export interface IAvatar {
+  uri: string
+  cache: string
+}
 `
 
 
@@ -20,8 +25,10 @@ function parseProp(prop) {
   const ret = []
   if (prop.type === 'boolean') {
     ret.push(`  ${prop.name}?: boolean`)
-  } else if (prop.type === 'text' || prop.type === 'color' || prop.type === 'icon' || prop.type === 'image') {
+  } else if (prop.type === 'text' || prop.type === 'color' || prop.type === 'icon') {
       ret.push(`  ${prop.name}?: string`)
+    } else if (prop.type === 'image') {
+      ret.push(`  ${prop.name}?: string | IAvatar`)
     } else if (prop.type === 'number') {
       ret.push(`  ${prop.name}?: number`)
     } else if (prop.type === 'list') {
@@ -94,7 +101,7 @@ manifests.forEach(manifestFilename => {
         interface.push(`export interface ${childComponentInterfaceName} {`)
         childComponent.props.forEach(prop => {
           if (prop.styles) {
-            mainInterface.push(`  ${childComponent.name}: { "${prop.name}": IStyles }`)
+            mainInterface.push(`  ${childComponent.name}?: { "${prop.name}": IStyles }`)
           }
           interface.push(parseProp(prop))
         })

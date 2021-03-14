@@ -1,8 +1,8 @@
 import React from 'react'
-import { IFirstLine, IFonts, ILeftSection, IRightSection, ISecondLine } from './generated'
+import { IAvatar, IFirstLine, IFonts, ILeftSection, IRightSection, ISecondLine } from './generated'
 import { View, Image } from 'react-native'
 import { styles } from './Styles'
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import Icon  from 'react-native-vector-icons/MaterialIcons'
 import { RippleFeedback, IconToggle } from 'react-native-material-ui'
 import { FirstLine } from './FirstLine'
 import { SecondLine } from './SecondLine'
@@ -107,11 +107,11 @@ export function Row({ firstLine, secondLine, leftSection, rightSection, fullWidt
           }
         return (
           <View style={styles.imageWrapper}>
-            {/* <Image
+            <Image
               resizeMode="cover"
-              source={leftSection.image}
+              source={{ uri: (leftSection.image as IAvatar).uri}}
               style={avatarStyle}
-            /> */}
+            />
           </View>
         )
       }
@@ -124,11 +124,11 @@ export function Row({ firstLine, secondLine, leftSection, rightSection, fullWidt
         }
         return (
           <View style={styles.imageWrapper}>
-            {/* <Image
+            <Image
               resizeMode="cover"
-              source={leftSection.image}
+              source={{ uri: (leftSection.image as string)}}
               style={imageStyle}
-            /> */}
+            />
           </View>
         )
       }

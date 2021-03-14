@@ -16,6 +16,11 @@ export interface IFonts {
   heading: string
 }
 
+export interface IAvatar {
+  uri: string
+  cache: string
+}
+
 export interface IListHeader {
   enabled?: boolean
   header?: string
@@ -40,7 +45,7 @@ export interface ILeftSection {
   type?: string
   icon?: string
   iconColor?: string
-  image?: string
+  image?: string | IAvatar
 }
 
 export interface IRightSection {
@@ -71,8 +76,8 @@ export interface IItems {
 
 export interface MergeListProps {
   listHeader?: IListHeader
-  firstLine: { "text": IStyles }
-  secondLine: { "text": IStyles }
+  firstLine?: { "text": IStyles }
+  secondLine?: { "text": IStyles }
   background?: IBackground
   items?: IItems[]
   dividerType?: string
