@@ -1,21 +1,263 @@
 {
   "displayName": "Merge List",
-  "defaultWidth": 160,
-  "defaultHeight": 24,
+  "defaultWidth": 600,
+  "defaultHeight": 232,
   "components": "./index.js",
   "icon": "./example-thumbnail.png",
   "props": [
     {
-      "name": "text",
-      "displayName": "Text",
-      "type": "text",
-      "default": "Happy Hacking"
+      "name": "items",
+      "displayName": "What is this a list of?",
+      "type": "list"
     },
     {
-      "name": "color",
-      "displayName": "Color",
+      "name": "dividerType",
+      "displayName": "Divider",
+      "type": "text",
+      "default": "inset",
+      "control": {
+        "type": "menu",
+        "options": [
+          { "label": "None", "value": "none" },
+          { "label": "Inset", "value": "inset" },
+          { "label": "Full", "value": "full" }
+        ]
+      }
+    },
+    {
+      "name": "dividerColor",
+      "displayName": "Divider Color",
       "type": "color",
-      "default": "#00A898"
+      "default": "#e0e0e0"
+    },
+    {
+      "name": "onPress",
+      "displayName": "Click Actions",
+      "type": "action",
+      "role": "listItem",
+      "reference": "items"
+    }
+  ],
+  "childComponents": [
+    {
+      "name": "listHeader",
+      "displayName": "List Header",
+      "props": [
+        { "name": "enabled", "type": "boolean", "default": false },
+        {
+          "name": "header",
+          "displayName": "Title",
+          "type": "text",
+          "default": "Title",
+          "styles": {
+            "fontFamily": "@heading",
+            "fontWeight": "600",
+            "color": "@text",
+            "fontSize": "16"
+          }
+        }
+      ]
+    },
+    {
+      "name": "firstLine",
+      "displayName": "Title",
+      "role": "listItem",
+      "reference": "items",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "text",
+          "default": "Title",
+          "styles": {
+            "fontFamily": "@body",
+            "color": "#212121",
+            "fontWeight": "normal"
+          }
+        },
+        {
+          "name": "titleLineNum",
+          "displayName": "Title Max Number of Lines",
+          "type": "number",
+          "default": 1,
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "One Line", "value": 1 },
+              { "label": "Two Lines", "value": 2 },
+              { "label": "No Max", "value": 3 }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "secondLine",
+      "displayName": "Subtitle",
+      "role": "listItem",
+      "reference": "items",
+      "props": [
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "text",
+          "default": "Subtitle",
+          "styles": {
+            "fontFamily": "@body",
+            "color": "#757575",
+            "fontWeight": "normal"
+          }
+        },
+        {
+          "name": "subtitleLineNum",
+          "displayName": "Subtitle Max Number of Lines",
+          "type": "number",
+          "default": 1,
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "One Line", "value": 1 },
+              { "label": "Two Lines", "value": 2 },
+              { "label": "No Max", "value": 3 }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "leftSection",
+      "displayName": "Left Section",
+      "role": "listItem",
+      "reference": "items",
+      "props": [
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "type",
+          "displayName": "Type",
+          "type": "text",
+          "default": "avatar",
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "Icon", "value": "icon" },
+              { "label": "Avatar", "value": "avatar" },
+              { "label": "Image", "value": "image" }
+            ]
+          }
+        },
+        {
+          "name": "icon",
+          "displayName": "Icon",
+          "type": "icon",
+          "default": "add",
+          "enabled": { "type": "icon" }
+        },
+        {
+          "name": "iconColor",
+          "displayName": "Icon Color",
+          "type": "color",
+          "default": "#ccc",
+          "enabled": { "type": "icon" }
+        },
+        {
+          "name": "image",
+          "displayName": "Image",
+          "type": "image",
+          "enabled": { "type": ["image", "avatar"] }
+        }
+      ]
+    },
+    {
+      "name": "rightSection",
+      "displayName": "Right Section",
+      "role": "listItem",
+      "reference": "items",
+      "props": [
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "icon",
+          "displayName": "Icon",
+          "type": "icon",
+          "default": "add"
+        },
+        {
+          "name": "iconColor",
+          "displayName": "Icon Color",
+          "type": "color",
+          "default": "#ccc"
+        },
+        {
+          "name": "onPress",
+          "displayName": "Click Actions",
+          "type": "action",
+          "role": "listItem",
+          "reference": "items"
+        }
+      ]
+    },
+    {
+      "name": "background",
+      "displayName": "Background",
+      "props": [
+        { "name": "enabled", "type": "boolean", "default": false },
+        {
+          "name": "backgroundColor",
+          "displayName": "Background Color",
+          "type": "color",
+          "default": "#FFFFFF"
+        },
+        {
+          "name": "border",
+          "displayName": "Border",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "name": "borderColor",
+          "displayName": "Border Color",
+          "type": "color",
+          "default": "#e0e0e0",
+          "enabled": {
+            "border": true
+          }
+        },
+        {
+          "name": "borderSize",
+          "displayName": "Border Size",
+          "type": "number",
+          "default": 1,
+          "control": { "type": "slider", "max": 3, "min": 1 },
+          "enabled": {
+            "border": true
+          }
+        },
+        {
+          "name": "rounding",
+          "displayName": "Rounding",
+          "type": "number",
+          "default": 4,
+          "control": { "type": "slider", "max": 60, "min": 0 }
+        },
+        {
+          "name": "shadow",
+          "displayName": "Shadow",
+          "type": "boolean",
+          "default": true
+        }
+      ]
     }
   ]
 }

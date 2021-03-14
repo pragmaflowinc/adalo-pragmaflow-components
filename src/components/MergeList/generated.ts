@@ -3,26 +3,84 @@
  * edits to this file might result in loosing *
  * information.                               *
  **********************************************/
-interface IStyles {
-  fontFamiy: String
-  fontSize: Number
-  fontWeight: Number
-  textAlignment: String
-  color: String
+export interface IStyles {
+  fontFamily?: string
+  fontSize?: number
+  fontWeight?: number | string
+  textAlignment?: string
+  color?: string
 }
 
-interface IFonts {
-  body: String
-  heading: String
+export interface IFonts {
+  body: string
+  heading: string
 }
 
+export interface IListHeader {
+  enabled?: boolean
+  header?: string
+  styles: { header: IStyles }
+}
+
+export interface IFirstLine {
+  text?: string
+  styles: { text: IStyles }
+  titleLineNum?: number
+}
+
+export interface ISecondLine {
+  enabled?: boolean
+  text?: string
+  styles: { text: IStyles }
+  subtitleLineNum?: number
+}
+
+export interface ILeftSection {
+  enabled?: boolean
+  type?: string
+  icon?: string
+  iconColor?: string
+  image?: string
+}
+
+export interface IRightSection {
+  enabled?: boolean
+  icon?: string
+  iconColor?: string
+  onPress?: () => void
+}
+
+export interface IBackground {
+  enabled?: boolean
+  backgroundColor?: string
+  border?: boolean
+  borderColor?: string
+  borderSize?: number
+  rounding?: number
+  shadow?: boolean
+}
+
+export interface IItems {
+  id: number
+  firstLine?: IFirstLine
+  secondLine?: ISecondLine
+  leftSection?: ILeftSection
+  rightSection?: IRightSection
+  _meta: any
+}
 
 export interface MergeListProps {
-  text?: String
-  color?: String
-  appId: String
+  listHeader?: IListHeader
+  firstLine: { "text": IStyles }
+  secondLine: { "text": IStyles }
+  background?: IBackground
+  items?: IItems[]
+  dividerType?: string
+  dividerColor?: string
+  onPress?: () => void
+  appId: string
   _fonts: IFonts
-  _width: Number
-  _height: Number
-  editor: Boolean
+  _width: number
+  _height: number
+  editor: boolean
 }

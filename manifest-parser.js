@@ -1,17 +1,17 @@
 var path = require('path')
 var fs = require('fs')
 
-const defaultInterfaces = `interface IStyles {
-  fontFamiy: String
-  fontSize: Number
-  fontWeight: Number
-  textAlignment: String
-  color: String
+const defaultInterfaces = `export interface IStyles {
+  fontFamily?: string
+  fontSize?: number
+  fontWeight?: number | string
+  textAlignment?: string
+  color?: string
 }
 
-interface IFonts {
-  body: String
-  heading: String
+export interface IFonts {
+  body: string
+  heading: string
 }
 `
 
@@ -19,11 +19,11 @@ interface IFonts {
 function parseProp(prop) {
   const ret = []
   if (prop.type === 'boolean') {
-    ret.push(`  ${prop.name}?: Boolean`)
+    ret.push(`  ${prop.name}?: boolean`)
   } else if (prop.type === 'text' || prop.type === 'color' || prop.type === 'icon' || prop.type === 'image') {
-      ret.push(`  ${prop.name}?: String`)
+      ret.push(`  ${prop.name}?: string`)
     } else if (prop.type === 'number') {
-      ret.push(`  ${prop.name}?: Number`)
+      ret.push(`  ${prop.name}?: number`)
     } else if (prop.type === 'list') {
       ret.push(`  ${prop.name}?: I${prop.name.charAt(0).toUpperCase() + prop.name.slice(1)}[]`)
     } else if (prop.type === 'action') {
@@ -33,9 +33,9 @@ function parseProp(prop) {
         prop.arguments.map(arg => {
           builder.push(`${arg.displayName.replace(' ', '')}?: `)
           if (arg.type === 'text') {
-            builder.push('String')
+            builder.push('string')
           } else if (arg.type === 'number') {
-            builder.push('Number')
+            builder.push('number')
           }
         })
       }
@@ -78,12 +78,13 @@ manifests.forEach(manifestFilename => {
   fileOutputter.push(`${defaultInterfaces}`)
   const mainInterface = []
   const interface = []
-  const jsonString = fs.readFileSync(manifestFilename)
-  const manifest = JSON.parse(jsonString)
+  const jsonstring = fs.readFileSync(manifestFilename)
+  const manifest = JSON.parse(jsonstring)
 
   mainInterface.push(`export interface ${manifest.displayName.replace(' ', '')}Props {`)
   if (manifest.childComponents) {
     manifest.childComponents.map(childComponent => {
+      
       const childComponentInterfaceName = `I${childComponent.name.charAt(0).toUpperCase() + childComponent.name.slice(1)}`
       if (childComponent.reference) {
         if (!referencedInterfaces[childComponent.reference]) {
@@ -91,7 +92,12 @@ manifests.forEach(manifestFilename => {
         }
         referencedInterfaces[childComponent.reference].push(`  ${childComponent.name}?: ${childComponentInterfaceName}`)
         interface.push(`export interface ${childComponentInterfaceName} {`)
-        childComponent.props.forEach(prop => interface.push(parseProp(prop)))
+        childComponent.props.forEach(prop => {
+          if (prop.styles) {
+            mainInterface.push(`  ${childComponent.name}: { "${prop.name}": IStyles }`)
+          }
+          interface.push(parseProp(prop))
+        })
         interface.push(`}`)
         interface.push(``)
       } else {
@@ -104,17 +110,19 @@ manifests.forEach(manifestFilename => {
     })
   }
   manifest.props.forEach(prop => mainInterface.push(parseProp(prop)))
-  mainInterface.push(`  appId: String`)
+  mainInterface.push(`  appId: string`)
   mainInterface.push(`  _fonts: IFonts`)
-  mainInterface.push(`  _width: Number`)
-  mainInterface.push(`  _height: Number`)
-  mainInterface.push(`  editor: Boolean`)
+  mainInterface.push(`  _width: number`)
+  mainInterface.push(`  _height: number`)
+  mainInterface.push(`  editor: boolean`)
   mainInterface.push(`}`)
   fileOutputter.push(interface.join('\n'))
 
   Object.keys(referencedInterfaces).map(ri => {
     fileOutputter.push(`export interface I${ri.charAt(0).toUpperCase() + ri.slice(1)} {`)
+    fileOutputter.push(`  id: number`)
     fileOutputter.push(referencedInterfaces[ri].join('\n'))
+    fileOutputter.push(`  _meta: any`)
     fileOutputter.push(`}\n`)
   })
 
