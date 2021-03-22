@@ -1,0 +1,40 @@
+{
+  "displayName": "Rich Text Editor",
+  "defaultWidth": 600,
+  "defaultHeight": 232,
+  "components": "./index.js",
+  "icon": "./example-thumbnail.png",
+  "props": [
+    {
+      "name": "text",
+      "displayName": "Initial Content",
+      "type": "text"
+    },
+    {
+      "name": "placeholder",
+      "displayName": "Placeholder",
+      "type": "text"
+    },
+    {
+      "name": "readOnly",
+      "displayName": "Is the content read-only?",
+      "type": "boolean"
+    },
+    {
+      "name": "showControls",
+      "displayName": "Do you want to show the toolbar?",
+      "type": "boolean"
+    },
+    {
+      "name": "onBlur",
+      "displayName": "Fired when user leaves the control, useful when saving",
+      "type": "action",
+      "arguments": [
+        {
+          "type": "text",
+          "displayName": "content"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "displayName": "Swipe Card",
+  "defaultWidth": 600,
+  "defaultHeight": 232,
+  "components": "./index.js",
+  "icon": "./example-thumbnail.png",
+  "props": [
+    {
+      "name": "dataList",
+      "displayName": "List",
+      "type": "list"
+    }
+  ],
+  "childComponents": [
+    {
+      "name": "firstFirstLine",
+      "displayName": "First Title",
+      "role": "listItem",
+      "reference": "dataList",
+      "props": [
+        {
+          "name": "text",
+          "displayName": "Text",
+          "type": "text",
+          "default": "Title",
+          "styles": {
+            "fontFamily": "@body",
+            "color": "#212121",
+            "fontWeight": "normal"
+          }
+        },
+        {
+          "name": "image",
+          "displayName": "image",
+          "type": "image"
+        },
+        {
+          "name": "titleLineNum",
+          "displayName": "Title Max Number of Lines",
+          "type": "number",
+          "default": 1,
+          "control": {
+            "type": "menu",
+            "options": [
+              { "label": "One Line", "value": 1 },
+              { "label": "Two Lines", "value": 2 },
+              { "label": "No Max", "value": 3 }
+            ]
+          }
+        }
+      ]
+    }
+    
+  ]
+}

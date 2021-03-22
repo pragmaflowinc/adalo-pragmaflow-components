@@ -6,18 +6,26 @@
   "license": "ISC",
   "author": "Steven McKeown",
   "scripts": {
-    "start": "adalo dev",
+    "start": "tsc --watch & adalo dev",
     "login": "adalo login",
     "publish": "adalo publish",
     "test": "jest"
   },
   "adalo": {
-    "logo": "./example-logo.png",
+    "logo": "./pf.jpg",
     "displayName": "PragmaFlow Components",
     "components": [
       {
         "name": "MergeList",
         "manifest": "./build/components/MergeList/manifest.json"
+      },
+      {
+        "name": "SwipeCard",
+        "manifest": "./build/components/SwipeCard/manifest.json"
+      },
+      {
+        "name": "RichText",
+        "manifest": "./build/components/RichText/manifest.json"
       }
     ]
   },
@@ -26,6 +34,7 @@
     "@babel/core": "^7.13.10",
     "@babel/runtime": "^7.13.10",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@types/draft-js": "^0.11.0",
     "@types/jest": "^26.0.20",
     "@types/react": "^17.0.3",
     "@types/react-native": "^0.63.51",
@@ -46,6 +55,8 @@
   },
   "dependencies": {
     "@protonapp/react-native-material-ui": "^2.0.6",
+    "@react-native-picker/picker": "^1.12.0",
+    "draft-js": "^0.11.7",
     "react-native-vector-icons": "^8.1.0"
   }
 }

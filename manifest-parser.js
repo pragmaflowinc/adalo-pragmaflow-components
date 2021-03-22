@@ -40,7 +40,7 @@ function parseProp(prop) {
       builder.push(`${prop.name}?: (`)
       if (prop.arguments) {
         prop.arguments.map(arg => {
-          builder.push(`${arg.displayName.replace(' ', '')}?: `)
+          builder.push(`${arg.displayName.split(' ').join('')}?: `)
           if (arg.type === 'text') {
             builder.push('string')
           } else if (arg.type === 'number') {
@@ -90,7 +90,7 @@ manifests.forEach(manifestFilename => {
   const jsonstring = fs.readFileSync(manifestFilename)
   const manifest = JSON.parse(jsonstring)
 
-  mainInterface.push(`export interface ${manifest.displayName.replace(' ', '')}Props {`)
+  mainInterface.push(`export interface ${manifest.displayName.split(' ').join('')}Props {`)
   if (manifest.childComponents) {
     manifest.childComponents.map(childComponent => {
       
