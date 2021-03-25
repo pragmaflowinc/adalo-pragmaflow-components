@@ -1,7 +1,7 @@
 {
   "name": "pragmaflow-components",
   "description": "Components for Adalo - by PragmaFlow",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "main": "index.js",
   "license": "ISC",
   "author": "Steven McKeown",
@@ -18,16 +18,11 @@
       {
         "name": "MergeList",
         "manifest": "./build/components/MergeList/manifest.json"
-      },
-      {
-        "name": "SwipeCard",
-        "manifest": "./build/components/SwipeCard/manifest.json"
-      },
-      {
-        "name": "RichText",
-        "manifest": "./build/components/RichText/manifest.json"
       }
-    ]
+    ],
+    "iosInstallScript": "./scripts/install_ios.sh",
+    "androidInstallScript": "./scripts/install_android.sh",
+    "skipDependencyCheck": true
   },
   "devDependencies": {
     "@adalo/cli": "^0.0.41",
