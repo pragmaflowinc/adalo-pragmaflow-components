@@ -1,7 +1,7 @@
 {
   "name": "pragmaflow-components",
   "description": "Components for Adalo - by PragmaFlow",
-  "version": "1.0.3",
+  "version": "1.0.18",
   "main": "index.js",
   "license": "ISC",
   "author": "Steven McKeown",
@@ -12,7 +12,7 @@
     "test": "jest"
   },
   "adalo": {
-    "logo": "./pf.jpg",
+    "logo": "./logo.png",
     "displayName": "PragmaFlow Components",
     "components": [
       {
